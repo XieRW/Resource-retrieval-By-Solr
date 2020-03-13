@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<dataConfig>
+    <!-- 数据库信息 -->
+    <dataSource type="JdbcDataSource" 
+        driver="com.mysql.jdbc.Driver" 
+        url="jdbc:mysql://192.168.1.160:3306/emplus_eos" 
+        user="emt" password="chinaemt"/>
+    <document>
+        <!-- document实体 -->
+        <entity name="app_db_material_address" query="SELECT * FROM app_db_material_address">
+            <!-- 数据库字段映射solr字段 -->
+            <field column="i_id" name="iId"/>
+            <field column="vc_name" name="vcName"/>
+            <field column="vc_code" name="vcCode"/>
+            <field column="i_order" name="iOrder"/>
+            <field column="i_pid" name="iPid"/>
+            <field column="d_longitude" name="dLongitude"/>
+            <field column="d_latitude" name="dLatitude"/>
+            <field column="vc_remark" name="vcRemark"/>
+            <field column="i_extend1" name="iExtend1"/>
+            <field column="i_extend2" name="iExtend2"/>
+            <field column="vc_extend1" name="vcExtend1"/>
+            <field column="vc_extend2" name="vcExtend2"/>
+            <field column="vc_extend3" name="vcExtend3"/>
+            <field column="sys_dt_create" name="sysDtCreate"/>
+            <field column="sys_i_create_user" name="sysICreateUser"/>
+            <field column="sys_dt_last_update" name="sysDtLastUpdate"/>
+            <field column="sys_i_last_update_user" name="sysILastUpdateUser"/>
+            <field column="sys_i_status" name="sysIStatus"/>
+            <field column="sys_vc_remark" name="sysVcRemark"/>
+            
+        </entity>
+    </document>
+</dataConfig>

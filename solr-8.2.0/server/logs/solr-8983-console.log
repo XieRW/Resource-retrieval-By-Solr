@@ -1,0 +1,18 @@
+2020-03-11 07:54:46.801 INFO  (main) [   ] o.e.j.u.log Logging initialized @1602ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-03-11 07:54:46.965 WARN  (main) [   ] o.e.j.x.XmlConfiguration Deprecated method public void org.eclipse.jetty.rewrite.handler.RedirectRegexRule.setReplacement(java.lang.String) in file:///E:/%E5%B7%A5%E4%BD%9C/svn%E8%B5%84%E6%BA%90/solr/solr-8.2.0/server/etc/jetty.xml
+2020-03-11 07:54:47.074 WARN  (main) [   ] o.e.j.s.AbstractConnector Ignoring deprecated socket close linger time
+2020-03-11 07:54:47.075 WARN  (main) [   ] o.e.j.x.XmlConfiguration Deprecated method public void org.eclipse.jetty.server.ServerConnector.setSoLingerTime(int) in file:///E:/%E5%B7%A5%E4%BD%9C/svn%E8%B5%84%E6%BA%90/solr/solr-8.2.0/server/etc/jetty-http.xml
+2020-03-11 07:54:47.086 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.19.v20190610; built: 2019-06-10T16:30:51.723Z; git: afcf563148970e98786327af5e07c261fda175d3; jvm 1.8.0_202-b08
+2020-03-11 07:54:47.119 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///E:/%E5%B7%A5%E4%BD%9C/svn%E8%B5%84%E6%BA%90/solr/solr-8.2.0/server/contexts/] at interval 0
+2020-03-11 07:54:47.968 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2020-03-11 07:54:47.986 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
+2020-03-11 07:54:47.986 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
+2020-03-11 07:54:47.991 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 600000ms
+2020-03-11 07:54:48.038 INFO  (main) [   ] o.a.s.c.SolrResourceLoader Using system property solr.solr.home: E:\工作\svn资源\solr\solr-8.2.0\server\solr
+2020-03-11 07:54:48.040 INFO  (main) [   ] o.a.s.h.d.s.SolrDataImportProperties Instance dir = E:\工作\svn资源\solr\solr-8.2.0\server\solr
+2020-03-11 07:54:48.042 INFO  (main) [   ] o.a.s.h.d.s.HttpPostScheduler <index update process> Multiple cores identified in dataimport.properties. Sync active for: appDbDisasterShelter,appDbMaterialAddress,appDbProtectionobject,appDbRisk,appDbTeam
+2020-03-11 07:54:48.135 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2020-03-11 07:54:48.142 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr? version 8.2.0
+2020-03-11 07:54:48.142 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in standalone mode on port 8983
+2020-03-11 07:54:48.142 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: E:\工作\svn资源\solr\solr-8.2.0
+2020-03-11 07:54:48.144 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2020-03-11T07:54:48.144Z
