@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<dataConfig>
+    <!-- 数据库信息 -->
+    <dataSource type="JdbcDataSource" 
+        driver="com.mysql.jdbc.Driver" 
+        url="jdbc:mysql://192.168.1.160:3306/emplus_eos" 
+        user="emt" password="chinaemt"/>
+    <document>
+        <!-- document实体 -->
+        <entity name="app_db_material_address" 
+		query="SELECT `i_id` as id,
+  `vc_name` as vcName,
+  `i_area_id` as  iAreaId,
+  `vc_dept` as vcDept,
+  `d_longitude` as x,
+  `d_latitude` as y,
+  `vc_address` as vcAddress,
+  `vc_traffic` as vcTraffic,
+  `vc_duty_tel` as vcDutyTel,
+  `vc_fax` as vcFax,
+  `vc_dept_address` as vcDeptAddress,
+  `vc_group` as vcGroup,
+  `dt_update_time` as dtUpdateTime,
+  `vc_remark` as vcRemark,
+  `dt_use_time` as dtUseTime,
+  `vc_basic_situation` as vcBasicSituation,
+  `d_area` as dArea,
+  `i_dept_id` as iDeptId,
+  `i_operate_id` as iOperateId,
+  `i_status` as iStatus,
+  `i_extend1` as iExtend1,
+  `i_extend2` as iExtend2,
+  `vc_extend1` as vcExtend1,
+  `vc_extend2` as vcExtend2,
+  `vc_extend3` as vcExtend3,
+  `sys_i_status` as sysIStatus,
+  `sys_dt_create` as sysDtCreate,
+  `sys_i_create_user` as sysICreateUser,
+  `sys_dt_last_update` as sysDtLastUpdate,
+  `sys_i_last_update_user` as sysILastUpdateUser,
+  `sys_vc_remark` as sysVcRemark,
+  `i_datasync_unit_id` as iDatasyncUnitId,
+  `dt_datasync_time` as dtDatasyncTime,
+  `i_datasync_id` as iDatasyncId,
+  `origin` as origin,
+  concat( d_longitude,' ',d_latitude) as GEO
+  FROM app_db_material_address">
+            <!-- 数据库字段映射solr字段 -->
+            <field column="i_id" name="id"/>
+            <field column="vc_name" name="vcName"/>
+            <field column="i_area_id" name="iAreaId"/>
+            <field column="vc_dept" name="vcDept"/>
+            <field column="d_longitude" name="x"/>
+            <field column="d_latitude" name="y"/>
+            <field column="vc_address" name="vcAddress"/>
+            <field column="vc_traffic" name="vcTraffic"/>
+            <field column="vc_duty_tel" name="vcDutyTel"/>
+            <field column="vc_fax" name="vcFax"/>
+            <field column="vc_dept_address" name="vcDeptAddress"/>
+            <field column="vc_group" name="vcGroup"/>
+            <field column="dt_update_time" name="dtUpdateTime"/>
+            <field column="vc_remark" name="vcRemark"/>
+            <field column="dt_use_time" name="dtUseTime"/>
+            <field column="vc_basic_situation" name="vcBasicSituation"/>
+            <field column="d_area" name="dArea"/>
+            <field column="i_dept_id" name="iDeptId"/>
+            <field column="i_operate_id" name="iOperateId"/>
+            <field column="i_status" name="iStatus"/>
+            <field column="i_extend1" name="iExtend1"/>
+            <field column="i_extend2" name="iExtend2"/>
+            <field column="vc_extend1" name="vcExtend1"/>
+            <field column="vc_extend2" name="vcExtend2"/>
+            <field column="vc_extend3" name="vcExtend3"/>
+            <field column="sys_i_status" name="sysIStatus"/>
+            <field column="sys_dt_create" name="sysDtCreate"/>
+            <field column="sys_i_create_user" name="sysICreateUser"/>
+            <field column="sys_dt_last_update" name="sysDtLastUpdate"/>
+            <field column="sys_i_last_update_user" name="sysILastUpdateUser"/>
+            <field column="sys_vc_remark" name="sysVcRemark"/>
+            <field column="i_datasync_unit_id" name="iDatasyncUnitId"/>
+            <field column="dt_datasync_time" name="dtDatasyncTime"/>
+            <field column="i_datasync_id" name="iDatasyncId"/>
+            <field column="origin" name="origin"/>
+
+            
+        </entity>
+    </document>
+</dataConfig>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<dataConfig>
+    <!-- 数据库信息 -->
+    <dataSource type="JdbcDataSource" 
+        driver="com.mysql.jdbc.Driver" 
+        url="jdbc:mysql://192.168.1.160:3306/emplus_eos" 
+        user="emt" password="chinaemt"/>
+    <document>
+        <!-- document实体 -->
+        <entity name="app_db_team" pk="id" 
+		query="SELECT `i_id` as id,
+  `vc_name` as vcName,
+  `d_longitude` as x,
+  `d_latitude` as y,
+  `vc_address` as vcAddress,
+  `vc_remark` as vcRemark,
+  concat( d_longitude,' ',d_latitude) as GEO
+  FROM app_db_team where sys_i_status=0"
+  deltaQuery="SELECT `i_id` AS `id` FROM `app_db_team` where sys_i_status=0 and sys_dt_last_update>'${dataimporter.last_index_time}'" 
+deletedPkQuery="SELECT `i_id` AS `id` FROM `app_db_team` where sys_i_status!='0'" 
+deltaImportQuery="SELECT `i_id` as id,
+  `vc_name` as vcName,
+  `d_longitude` as x,
+  `d_latitude` as y,
+  `vc_address` as vcAddress,
+  `vc_remark` as vcRemark,
+  concat( d_longitude,' ',d_latitude) as GEO
+  from app_db_team where sys_i_status=0  and i_id='${dataimporter.delta.id}'">
+            <!-- 数据库字段映射solr字段 -->
+            <field column="i_id" name="id"/>
+            <field column="vc_name" name="vcName"/>
+            <!-- <field column="i_area_id" name="iAreaId"/> -->
+            <!-- <field column="vc_dept" name="vcDept"/> -->
+            <field column="d_longitude" name="x"/>
+            <field column="d_latitude" name="y"/>
+            <field column="vc_address" name="vcAddress"/>
+            <!-- <field column="vc_traffic" name="vcTraffic"/> -->
+            <!-- <field column="vc_duty_tel" name="vcDutyTel"/> -->
+            <!-- <field column="vc_fax" name="vcFax"/> -->
+            <!-- <field column="vc_dept_address" name="vcDeptAddress"/> -->
+            <!-- <field column="vc_group" name="vcGroup"/> -->
+            <!-- <field column="dt_update_time" name="dtUpdateTime"/> -->
+            <field column="vc_remark" name="vcRemark"/>
+            <!-- <field column="dt_use_time" name="dtUseTime"/> -->
+            <!-- <field column="vc_basic_situation" name="vcBasicSituation"/> -->
+            <!-- <field column="d_area" name="dArea"/> -->
+            <!-- <field column="i_dept_id" name="iDeptId"/> -->
+            <!-- <field column="i_operate_id" name="iOperateId"/> -->
+            <!-- <field column="i_status" name="iStatus"/> -->
+            <!-- <field column="i_extend1" name="iExtend1"/> -->
+            <!-- <field column="i_extend2" name="iExtend2"/> -->
+            <!-- <field column="vc_extend1" name="vcExtend1"/> -->
+            <!-- <field column="vc_extend2" name="vcExtend2"/> -->
+            <!-- <field column="vc_extend3" name="vcExtend3"/> -->
+            <!-- <field column="sys_i_status" name="sysIStatus"/> -->
+            <!-- <field column="sys_dt_create" name="sysDtCreate"/> -->
+            <!-- <field column="sys_i_create_user" name="sysICreateUser"/> -->
+            <!-- <field column="sys_dt_last_update" name="sysDtLastUpdate"/> -->
+            <!-- <field column="sys_i_last_update_user" name="sysILastUpdateUser"/> -->
+            <!-- <field column="sys_vc_remark" name="sysVcRemark"/> -->
+            <!-- <field column="i_datasync_unit_id" name="iDatasyncUnitId"/> -->
+            <!-- <field column="dt_datasync_time" name="dtDatasyncTime"/> -->
+            <!-- <field column="i_datasync_id" name="iDatasyncId"/> -->
+            <!-- <field column="origin" name="origin"/> -->
+
+            
+        </entity>
+    </document>
+</dataConfig>

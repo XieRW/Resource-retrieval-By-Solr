@@ -1,0 +1,19 @@
+2019-10-15 02:40:17,325 main ERROR Unable to move file D:\solr-8.2.0\server\logs\solr.log to D:\solr-8.2.0\server\logs\solr.log.3: java.nio.file.FileSystemException D:\solr-8.2.0\server\logs\solr.log -> D:\solr-8.2.0\server\logs\solr.log.3: 另一个程序正在使用此文件，进程无法访问。
+
+2019-10-15 02:40:17,334 main ERROR Unable to delete file D:\solr-8.2.0\server\logs\solr.log: java.nio.file.FileSystemException D:\solr-8.2.0\server\logs\solr.log: 另一个程序正在使用此文件，进程无法访问。
+
+2019-10-15 02:40:17.485 INFO  (main) [   ] o.e.j.u.log Logging initialized @1496ms to org.eclipse.jetty.util.log.Slf4jLog
+2019-10-15 02:40:17.641 WARN  (main) [   ] o.e.j.x.XmlConfiguration Deprecated method public void org.eclipse.jetty.rewrite.handler.RedirectRegexRule.setReplacement(java.lang.String) in file:///D:/solr-8.2.0/server/etc/jetty.xml
+2019-10-15 02:40:17.735 WARN  (main) [   ] o.e.j.s.AbstractConnector Ignoring deprecated socket close linger time
+2019-10-15 02:40:17.735 WARN  (main) [   ] o.e.j.x.XmlConfiguration Deprecated method public void org.eclipse.jetty.server.ServerConnector.setSoLingerTime(int) in file:///D:/solr-8.2.0/server/etc/jetty-http.xml
+2019-10-15 02:40:17.744 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.19.v20190610; built: 2019-06-10T16:30:51.723Z; git: afcf563148970e98786327af5e07c261fda175d3; jvm 1.8.0_202-b08
+2019-10-15 02:40:17.778 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///D:/solr-8.2.0/server/contexts/] at interval 0
+2019-10-15 02:40:18.578 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2019-10-15 02:40:18.591 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
+2019-10-15 02:40:18.592 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
+2019-10-15 02:40:18.594 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 660000ms
+2019-10-15 02:40:18.684 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2019-10-15 02:40:18.690 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr? version 8.2.0
+2019-10-15 02:40:18.690 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in standalone mode on port 8963
+2019-10-15 02:40:18.690 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: D:\solr-8.2.0
+2019-10-15 02:40:18.691 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2019-10-15T02:40:18.691Z

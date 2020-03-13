@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<dataConfig>
+    <!-- 数据库信息 -->
+    <dataSource type="JdbcDataSource" 
+        driver="com.mysql.jdbc.Driver" 
+        url="jdbc:mysql://192.168.1.160:3306/emplus_eos" 
+        user="emt" password="chinaemt"/>
+    <document>
+        <!-- document实体 -->
+        <entity name="app_contactor" query="SELECT * FROM app_contactor">
+            <!-- 数据库字段映射solr字段 -->
+            <field column="i_id" name="id"/>
+            <field column="vc_name" name="vc_name"/>
+            <field column="i_sex" name="i_sex"/>
+            <field column="vc_work_unit" name="vc_work_unit"/>
+            <field column="vc_position" name="vc_position"/>
+            <field column="i_importance" name="i_importance"/>
+            <field column="vc_office_tel" name="vc_office_tel"/>
+            <field column="vc_mobile" name="vc_mobile"/>
+            <field column="vc_home_tel" name="vc_home_tel"/>
+            <field column="vc_fax" name="vc_fax"/>
+            <field column="vc_other_tel" name="vc_other_tel"/>
+            <field column="vc_other_tel2" name="vc_other_tel2"/>
+            <field column="i_commonly_used" name="i_commonly_used"/>
+            <field column="vc_mobile_pwd" name="vc_mobile_pwd"/>
+            <field column="i_mobile_user" name="i_mobile_user"/>
+            <field column="vc_py" name="vc_py"/>
+            <field column="vc_email" name="vc_email"/>
+            <field column="vc_remark" name="vc_remark"/>
+            
+        </entity>
+    </document>
+</dataConfig>
