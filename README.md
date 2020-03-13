@@ -4,4 +4,4 @@
 ## Resource 为源代码，由SpringBoot结合solr实现资源检索
 ## solr-8.2.0为已经配置好的solr服务，基于最新的solr8
 
- 
+............
