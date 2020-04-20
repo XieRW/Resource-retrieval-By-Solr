@@ -10,6 +10,13 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * @author xieRW
+ * @date 2020-04-20
+ * @email 1429382875@qq.com
+ *
+ * 配置允许前端跨域访问
+ */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 

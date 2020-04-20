@@ -3,15 +3,17 @@ package com.solr.demo.enums;
 public enum CoreName {
 
     //庇护场所
-    appDbDisasterShelter("appDbDisasterShelter"),
+    resoureArea("resoureArea"),
     //物资库
-    appDbMaterialAddress("appDbMaterialAddress"),
+    resoureArticle("resoureArticle"),
     //防护目标
-    appDbProtectionobject("appDbProtectionobject"),
+    resoureArticleStorehouse("resoureArticleStorehouse"),
     //救援队伍
-    appDbTeam("appDbTeam"),
+    resoureProtectTarget("resoureProtectTarget"),
     //风险隐患
-    appDbRisk("appDbRisk");
+    resoureTeam("resoureTeam"),
+    //监测预警相机
+    riskCamera("riskCamera");
 
     private String coreName;
 

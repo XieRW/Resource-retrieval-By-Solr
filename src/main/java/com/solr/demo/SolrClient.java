@@ -31,6 +31,7 @@ import org.apache.solr.common.util.NamedList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -53,16 +54,13 @@ import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 /**
- * ClassName: SolrClient <br/>
- * Description: solr查询方法封装类 <br/>
- * Date: 2017年2月9日 下午2:08:19 <br/>
- * <br/>
- * 
- * @author wujw
- * 
- *         修改记录
- * @version 1.0.0 2017年2月9日 wujw Initial Version<br/>
+ * @author xieRW
+ * @date 2020-04-20
+ * @email 1429382875@qq.com
+ *
+ * Description: solr查询方法封装类
  */
+@Component
 public class SolrClient {
 
     private Logger log = LoggerFactory.getLogger(SolrClient.class);

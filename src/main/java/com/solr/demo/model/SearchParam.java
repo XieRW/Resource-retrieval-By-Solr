@@ -2,13 +2,21 @@ package com.solr.demo.model;
 
 public class SearchParam {
 
-    //经度
+    /**
+     * 经度
+     */
     private double x;
-    //纬度
+    /**
+     * 纬度
+     */
     private double y;
-    //半径
+    /**
+     * 半径
+     */
     private double radius;
-
+    /**
+     * 坐标组
+     */
     private String Polygon;
 
     public SearchParam(double x, double y, double radius) {

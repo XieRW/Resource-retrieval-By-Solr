@@ -1,55 +1,92 @@
 package com.solr.demo.service.serviceImp;
 
 import com.solr.demo.DO.AppDbResourse;
+import com.solr.demo.enums.CoreName;
 import com.solr.demo.model.SearchParam;
 import com.solr.demo.service.SearchService;
 import com.solr.demo.SolrClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
- * ClassName: SearchSerivceImpl <br/>
- * Description: 空间搜索实现类 <br/>
- * Date: 2019年11月01日<br/>
- * <br/>
+ * ClassName: SearchSerivceImpl
+ * Description: 空间搜索实现类
  *
+ * @date: 2019年11月01日
  * @author xrw
- * <p>
+ * @email 1429382875@qq.com
  */
 @Service(value = "searchSerivceImpl")
 public class SearchSerivceImpl implements SearchService {
     Logger logger = LoggerFactory.getLogger(SearchService.class);
     String coreName; // core名称
 
-    @Override
-    public List<AppDbResourse> searchAppDbResourseByPoint(SearchParam searchParam, String m_coreName) {
-        this.coreName = m_coreName;
-        SolrClient solrClient = SolrClient.getInstance(); // 获取solr实例
-        // 圆选条件，如有其筛选条件，必须放在此条件前面，否则其它条件不起作用
-        String criteria = "{!geofilt sfield=GEO pt=" + searchParam.getY() + "," + searchParam.getX() + " d="
-                + searchParam.getRadius() + "}";
-        String[] solrAttribute = new String[]{"id", "vcName", "x", "y", "vcAddress", "vcRemark", "GEO"}; // solr中的数据属性名
-        String[] beanAttribute = new String[]{"id", "vcName", "x", "y", "vcAddress", "vcRemark", "GEO"}; // dto中的属性名
+    @Value("${sajRisk.solr_url}")
+    private String solrUrl;
 
-        List<AppDbResourse> list = solrClient.getBeans(criteria, coreName, Integer.MAX_VALUE, 0, null, AppDbResourse.class,
+    @Autowired
+    SolrClient solrClient;
+
+    @Override
+    public List<AppDbResourse> searchAppDbResourseByPoint(SearchParam searchParam, String coreName,String title) {
+        /**
+         * solr中的数据属性名
+         */
+        String[] solrAttribute = new String[]{"id", "vcName", "x", "y", "vcAddress", "vcRemark", "GEO", "platformId"};
+        /**
+         * vo中的属性名
+         */
+        String[] beanAttribute = new String[]{"id", "vcName", "x", "y", "vcAddress", "vcRemark", "GEO", "platformId"};
+        // 圆选条件，如有其筛选条件，必须放在此条件前面，否则其它条件不起作用
+        Integer platformId = 1;
+        /**
+         * 配合shiro获取平台id，以便于分平台查询数据
+         * 这里只是提供思路，将shiro或者security整合进来就可以实现数据权限的分离
+         */
+        // Integer platformId = ShiroUtils.getPlatformId();
+
+        String criteria ="platformId: "+ platformId + " AND vcName: "+title+" AND"+" {!geofilt sfield=GEO pt=" + searchParam.getY() + "," + searchParam.getX() + " d="
+                + searchParam.getRadius() + "}";
+        if (coreName.equals(CoreName.resoureArticleStorehouse.getCoreName())){
+            criteria = "(({!join from=storehouseId to=id fromIndex="+CoreName.resoureArticle.getCoreName()+"}vcName:"+title+" AND platformId: "+platformId
+                    + ") OR vcName: "+title+") AND"+"{!geofilt sfield=GEO pt=" + searchParam.getY() + "," + searchParam.getX() + " d="
+                    + searchParam.getRadius() + "}";
+        }
+
+        List<AppDbResourse> list = solrClient.getBeans(criteria, solrUrl+"/"+coreName, Integer.MAX_VALUE, 0, null, AppDbResourse.class,
                 solrAttribute, beanAttribute, null);
         return list;
     }
 
     @Override
-    public List<AppDbResourse> searchAppDbResourseByPolygon(SearchParam searchParam, String m_coreName) {
-        this.coreName = m_coreName;
-        SolrClient solrClient = SolrClient.getInstance(); // 获取solr实例
+    public List<AppDbResourse> searchAppDbResourseByPolygon(SearchParam searchParam, String coreName, String title) {
+        /**
+         * solr中的数据属性名
+         */
+        String[] solrAttribute = new String[]{"id", "vcName", "x", "y", "vcAddress", "vcRemark", "GEO", "platformId"};
+        /**
+         * vo中的属性名
+         */
+        String[] beanAttribute = new String[]{"id", "vcName", "x", "y", "vcAddress", "vcRemark", "GEO", "platformId"};
+        Integer platformId = 1;
+        /**
+         * 配合shiro获取平台id，以便于分平台查询数据
+         * 这里只是提供思路，将shiro或者security整合进来就可以实现数据权限的分离
+         */
+        // Integer platformId = ShiroUtils.getPlatformId();
         //searchParam.getPolygon() 的示例
         // String test = "POLYGON((0 0,0 90,112 90,112 0,0 0))";
-        String criteria = " GEO:\"IsWithin(" + searchParam.getPolygon() + ")\" "; // 查询条件
-//        logger.info(criteria);
-        String[] solrAttribute = new String[]{"id", "vcName", "x", "y", "vcAddress", "vcRemark", "GEO"}; // solr中的数据属性名
-        String[] beanAttribute = new String[]{"id", "vcName", "x", "y", "vcAddress", "vcRemark", "GEO"}; // dto中的属性名
-        List<AppDbResourse> list = solrClient.getBeans(criteria, coreName, Integer.MAX_VALUE, 0, null, AppDbResourse.class,
+        String criteria ="platformId: "+ platformId +  " AND vcName: "+title+" AND"+" GEO:\"IsWithin(" + searchParam.getPolygon() + ")\" "; // 查询条件
+        if (coreName.equals(CoreName.resoureArticleStorehouse.getCoreName())){
+            criteria = "(({!join from=storehouseId to=id fromIndex="+CoreName.resoureArticle.getCoreName()+"}vcName:"+title+" AND platformId: "+platformId
+                    + ") OR vcName: "+title+") AND platformId: " + platformId + " AND"+" GEO:\"IsWithin(" + searchParam.getPolygon() + ")\" ";
+        }
+        List<AppDbResourse> list = solrClient.getBeans(criteria, solrUrl+"/"+coreName, Integer.MAX_VALUE, 0, null, AppDbResourse.class,
                 solrAttribute, beanAttribute, null);
         return list;
     }
