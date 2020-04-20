@@ -30,3 +30,4 @@ build/
 ### VS Code ###
 .vscode/
 /.mvn/
+/solr-8.2.0/server/logs/
